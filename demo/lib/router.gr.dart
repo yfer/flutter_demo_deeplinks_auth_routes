@@ -46,33 +46,35 @@ class AppRouter extends _i1.RootStackRouter {
 
   @override
   List<_i1.RouteConfig> get routes => [
+        _i1.RouteConfig('/#redirect',
+            path: '/', redirectTo: '/home', fullMatch: true),
         _i1.RouteConfig(AuthRoute.name, path: '/auth'),
         _i1.RouteConfig(SomeRoute.name, path: '/some'),
-        _i1.RouteConfig(HomeRoute.name, path: '/'),
+        _i1.RouteConfig(HomeRoute.name, path: '/home'),
         _i1.RouteConfig(DeeplinkRoute.name,
             path: '/deeplink', guards: [authGuard])
       ];
 }
 
-class AuthRoute extends _i1.PageRouteInfo {
+class AuthRoute extends _i1.PageRouteInfo<void> {
   const AuthRoute() : super(name, path: '/auth');
 
   static const String name = 'AuthRoute';
 }
 
-class SomeRoute extends _i1.PageRouteInfo {
+class SomeRoute extends _i1.PageRouteInfo<void> {
   const SomeRoute() : super(name, path: '/some');
 
   static const String name = 'SomeRoute';
 }
 
-class HomeRoute extends _i1.PageRouteInfo {
-  const HomeRoute() : super(name, path: '/');
+class HomeRoute extends _i1.PageRouteInfo<void> {
+  const HomeRoute() : super(name, path: '/home');
 
   static const String name = 'HomeRoute';
 }
 
-class DeeplinkRoute extends _i1.PageRouteInfo {
+class DeeplinkRoute extends _i1.PageRouteInfo<void> {
   const DeeplinkRoute() : super(name, path: '/deeplink');
 
   static const String name = 'DeeplinkRoute';

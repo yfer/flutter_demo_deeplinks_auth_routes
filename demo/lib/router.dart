@@ -11,7 +11,7 @@ import 'home_page.dart';
   routes: <AutoRoute>[
     AutoRoute(path: '/auth', page: AuthPage),
     AutoRoute(path: '/some', page: SomePage),
-    AutoRoute(path: '/', page: HomePage, initial: true),
+    AutoRoute(path: '/home', page: HomePage, initial: true),
     AutoRoute(path: '/deeplink', guards: [AuthGuard], page: DeeplinkPage),
   ],
 )
